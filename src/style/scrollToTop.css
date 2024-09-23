@@ -1,0 +1,32 @@
+.arrowUp {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.scrollToTop-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  position: fixed;
+  bottom: 60px;
+  right: 50px;
+  width: 55px;
+  height: 55px;
+  font-size: 16px;
+  line-height: 48px;
+  background-color: rgba(133, 10, 248, 0.877);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+.scrollToTop-btn:hover {
+  background: rgba(143, 47, 233, 0.877);
+}
+
+.scrollToTop-btn:focus {
+  border: none;
+  outline: none;
+}
