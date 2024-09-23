@@ -7,7 +7,7 @@ export const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [isZoom, setIsZoom] = useState(false);
   const [token, setToken] = useState("");
-  const url = "https://food-delivery-app-backend-9ufi.onrender.com";
+  const url = "https://food-delivery-backend-464e.onrender.com";
 
   const [food_list, setFoodList] = useState([]);
 
@@ -21,7 +21,7 @@ export const StoreContextProvider = (props) => {
     console.log(token, "token");
     if (token) {
       await axios.post(
-        "/api/v1/cart/add",
+        `${url}/api/v1/cart/add`,
         { itemId },
         {
           headers: {
@@ -33,7 +33,7 @@ export const StoreContextProvider = (props) => {
   };
 
   async function loadData() {
-    const response = await axios.get("/api/v1/food/lists");
+    const response = await axios.get(`${url}/api/v1/food/lists`);
     setFoodList(response.data.foods);
     if (localStorage.getItem("token")) {
       setToken(localStorage.getItem("token"));
@@ -42,7 +42,7 @@ export const StoreContextProvider = (props) => {
 
   const loadCartData = async (token) => {
     const response = await axios.post(
-      "/api/v1/cart/get",
+      `${url}/api/v1/cart/get`,
       {},
       {
         headers: {
@@ -69,7 +69,7 @@ export const StoreContextProvider = (props) => {
 
     if (token) {
       await axios.post(
-        "/api/v1/cart/remove",
+        `${url}/api/v1/cart/remove`,
         { itemId },
         {
           headers: {

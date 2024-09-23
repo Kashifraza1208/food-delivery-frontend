@@ -5,7 +5,7 @@ import { StoreContext } from "../../context/StoreContext.js";
 import toast from "react-hot-toast";
 
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
     useContext(StoreContext);
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const Cart = () => {
                   <div key={index} className="cart-items-item">
                     <div className="grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center text-black my-2">
                       <img
-                        src={`/images/${item?.image}`}
+                        src={`${url}/images/${item?.image}`}
                         alt=""
                         className="w-12"
                       />

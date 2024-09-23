@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 
 const MyOrders = ({ setShowLogin }) => {
   const [orderData, setData] = useState([]);
-  const { token } = useContext(StoreContext);
+  const { token, url } = useContext(StoreContext);
 
   const fetchOrders = async () => {
     const response = await axios.post(
-      "/api/v1/order/userOrder",
+      `${url}/api/v1/order/userOrder`,
       {},
       {
         headers: {

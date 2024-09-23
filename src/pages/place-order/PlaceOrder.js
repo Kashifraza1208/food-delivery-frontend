@@ -26,7 +26,7 @@ const PlaceOrder = () => {
     token,
     food_list,
     cartItems,
-    // url,
+    url,
     setCartItems,
     // currency,
     // deliveryCharge,
@@ -57,11 +57,15 @@ const PlaceOrder = () => {
       amount: getTotalCartAmount() + 2,
     };
     try {
-      const response = await axios.post("/api/v1/order/place", orderData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.post(
+        `${url}/api/v1/order/place`,
+        orderData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (response.data.success) {
         const { session_url } = response.data;
         window.location.replace(session_url);

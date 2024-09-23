@@ -1,11 +1,13 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
 // import "./Verify.css";
 
 const Verify = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { url } = useContext(StoreContext);
   const success = searchParams.get("success");
   const orderId = searchParams.get("orderId");
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ const Verify = () => {
   const verifyPayment = async () => {
     try {
       const response = await axios.post(
-        "/api/v1/order/verify",
+        `${url}/api/v1/order/verify`,
         {
           success,
           orderId,
